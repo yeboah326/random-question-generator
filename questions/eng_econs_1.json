@@ -1,0 +1,41 @@
+{
+  "questions": {
+    "1": "The three major budget categories under the Master budget consists of operating budgets, capital budgets and ",
+    "2": "The Master budget normally covers a`",
+    "3": "_____ is a process that involves co-ordinating the finances of all areas of the new venture",
+    "4": "Which of the following involves making decisions such as whether to buy or lease equipment",
+    "5": "Continuous budgeting utilities",
+    "6": "Which of the following budgets is expected to be more specific",
+    "7": "Which of the following is intended for higher risks such as start up situations",
+    "8": "The first step in the preparation of the operating budget is",
+    "9": "A budget is",
+    "10": "The budgeting process normally begins with the preparation of",
+    "11": "______ involves deciding which market niche should be profitable"
+  },
+  "possible_answers": {
+    "1": "\na. strategic plans\nb.tactical budgets\nc.cash budgets\nd.financial statement budgets\ne.none of the above",
+    "2": "\na.five year time span\nb.three year time span\nc.one year time span\nd.three month time span\ne.none of the above",
+    "3": "\na.cost accounting\nb.financial accounting\nc.management accounting\nd.budgeting\ne.none of the above",
+    "4": "\na.strategic planning\nb.capital budgeting\nc.operating budgeting\nd.tactical budgeting\ne.none of the above",
+    "5": "\na.a 3-month reporting period\nb. a 6-month reporting period\nc. a 12-month reporting period\nd. a 3-year reporting period\ne. none of the above",
+    "6": "\na.tactical budgets\nb.operating budgets\nc.capital budgets\nd.strategic plans\ne.none of the above",
+    "7": "\na.development capital\nb.replacement capital\nc.owners capital\nd.venture capital\ne.none of the above",
+    "8": "\na.cash requirements\nb.inventory forecast\nc.sales forecast\nd.purchase forecast\ne.none of the above",
+    "9": "\na.prepared primarily as a planning function\nb.administered as a control function\nc.a statement of expected results or requirements expressed in financial or numerical terms\nd.all of the above",
+    "10":"\na.operating budgets\nb.capital budgets\nc.financial statement budgets\nd.strategic budgets\ne.none of the above",
+    "11":"\na.operating budgeting\nb. strategic planning\nc.capital budgeting\nd.sales forecasting\ne.none of the above"
+  },
+  "answers": {
+    "1": "d.financial statement budgets",
+    "2": "c.one year time span",
+    "3": "d.budgeting",
+    "4": "b.capital budgeting",
+    "5": "c. a 12-month reporting period",
+    "6": "b.operating budgets",
+    "7": "d.venture capital",
+    "8": "c.sales forecast",
+    "9": "d.all of the above",
+    "10":"a.operating budgets",
+    "11":"b. strategic planning"
+  }
+}
