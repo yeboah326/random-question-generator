@@ -1,11 +1,56 @@
 {
-    "questions":{
-        "1":"","2":"","3":"","4":"","5":"","6":"","7":"","8":"","9":"","10":""
-    },
-    "possible_answers":{
-        "1":"","2":"","3":"","4":"","5":"","6":"","7":"","8":"","9":"","10":""
-    },
-    "answers":{
-        "1":"","2":"","3":"","4":"","5":"","6":"","7":"","8":"","9":"","10":""
-    }
+  "questions": {
+    "1": "The DFT is perferred for\n1.Its ability to determin the frequency component of the signal\n2.Removal of noise\n3.Filter design\n4.Quantization of signal",
+    "2": "A real valued signal x(n) is called as anti-symmetric if: ",
+    "3": "DFT is applied to\nSelect one:",
+    "4": "Which of the following is not suitable either as low pass or a high pass filter?\nSelect one:",
+    "5": "Which of the following is a method for implementing an FIR system?",
+    "6": "Find the response of an FIR filter with impulse response h(n)={1,2,4} to the input sequence x(n)={1,2}",
+    "7": "Which of the following is the advantage of Hanning window over rectangular window?",
+    "8": "If a signal x(t) is processed through a system to obtain the signal (x(t), then the system is said to be:",
+    "9": "The resolution of a 6-bit DAC is",
+    "10": "The multiplication of the window function w(n) with hin) is equivalent to the multiplication of H(w) and W(w)",
+    "11": "In FIR filter design, which among the following parameters is/are separately controlled by using Kaiser window?",
+    "12": "For designing a multirate LPF with passband 0 to 50 Hz, stopband 60 to 280 Hz, stopband deviation 0.001, passband deviation 0.01 and sampling frequency (fs) = 400 Hz, what would be the value of normalized transition width?",
+    "13": "Which among the following represent/s the characteristic/s of an ideal filter?",
+    "14": "In the Bilinear Transformation mapping, all points in the RHP of the s - plane are mapped outside the unit circle in the z-plane",
+    "15": "Which property does y(t)=x(1-t) exhibit?",
+    "16": "The oscillatory behavior near the band edge of the low pass filter is known as Gibbs phenomenon."
+  },
+  "possible_answers": {
+    "1": "\na.1 and 2 are correct\nb.1 and 4 are correct\nAll the four are correct\nd.1 and 3 are correct",
+    "2": "\na. x(n) = -x(n)\nb. None of the mentioned\nc. x(n) = x(-n)\nd. x(n) = -x(-n)",
+    "3": "\na.Finite discrete sequences\nb.Continuous finite sequences\nc.Continuous Infinite Signals\nd.Infinite Sequences",
+    "4": "\na.h(n) anti-symmetric and M even\nb.h(n) symmetric and M even\nc.h(n) symmetric and M odd\nd.h(n) anti-symmetric and M odd",
+    "5": "\na.All of the options\nb.Cascade form\nc.Lattice structure\nd.Direct form",
+    "6": "\na.y(n)={1,4,6,6}\nb.y(n)={1,4,8,8}\nc.y(n)={1,2,8,8}\nd.More width of main lobe",
+    "7": "\na.Less side lobes\nb.More side lobes\nc.None of the options\nd.More width of main lobe",
+    "8": "\na.Exponential\nb.Linear\nc.Polynomial\nd.Non-linear",
+    "9": "\na.64%\nb.1.2%\nc.1.59\nd.",
+    "10": "\na.True\nb.False",
+    "11": "\na.None of the options\nb.Order of filter (M)\nc.Transition width of main lobe\nd.Both options",
+    "12": "\na.a.0.025 Hz\nb.0.125 Hz\nc.0.25 Hz\nd.0.5 Hz",
+    "13": "\na.Constant gain in passband\nb.Zero gain in stop band\nc.Linear Phase Response\nd.All of the options",
+    "14": "\na.True\nb.False",
+    "15": "\na. Time scaling\nb.Time shifting\nc.Time shifting and reflecting\nd.Reflecting",
+    "16": "\na.True\nb.False"
+  },
+  "answers": {
+    "1": "d.1 and 3 are correct",
+    "2": "d.x(n) = -x(-n)",
+    "3": "a.Finite discrete sequences",
+    "4": "d.h(n) anti-symmetric and M odd",
+    "5": "a.All of the options",
+    "6": "b.y(n)={1,4,8,8}",
+    "7": "",
+    "8": "d.Non-linear",
+    "9": "c.1.59",
+    "10": "b.False",
+    "11": "d.Both options",
+    "12": "a.0.025 Hz",
+    "13": "d.All of the options",
+    "14": "a.True",
+    "15": "Time shifting and reflecting",
+    "16": "a. True"
+  }
 }
