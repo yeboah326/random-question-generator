@@ -50,7 +50,19 @@
     "48": "A legal form of business created through law that empowers a business a legal entity, has a perpertual life unimpeded by biological lifespan of investors is a ",
     "49": "A business system created by a contract between a parent company and an acquiring business owner, giving the acquiring owner the right to sell goods or services, to use certain producs, names or brands or to manufacture certain products is called a ",
     "50": "The composition of the numerous separate but interdependent departmental budgets that cover a wide range of operating and financial factors such as sales, production, manufacturing expenses, and administrative expenses is known as",
-    "51": "Budgeted financial statements prepared from information in the master budget refers to "
+    "51": "Budgeted financial statements prepared from information in the master budget refers to ",
+    "52": "The budgeting process normally begins with the preparation of",
+    "53": "Which of the following involves making decisions such whether to buy or lease equipment",
+    "54": "Which of the following summarizes the project assets, liabilities, and equity of the new venture?",
+    "55": "The component of equity in a business (company) representing accumulated profits in excess of losses and payments to owners is referred to as:",
+    "56": "An obligation arising from the purchase of goods or services on credit is referred to as:",
+    "57": "Money due from an individual or another business as payment for the performance of services or the sale of goods on credit is known as",
+    "58": "Proforma Income Statements are ",
+    "59": "What are the main segment of a Pro forma balance sheet?",
+    "60": "Society and humankind as stakeholders have the following interests in a venture",
+    "61": "Entrepreneurs are",
+    "62": "Entrepreneurs",
+    "63": "The replacement of existing products and businesses with new and better ones is called"
   },
   "possible_answers": {
     "1": "\na. Corridor of opportunity\nb.Idea germination\nc.Preparation\nd.Window of opportunity\ne.None of the above",
@@ -103,7 +115,19 @@
     "48": "\na.company\nb.corporation\nc.franchise\nd.limited partnership\ne.partnership",
     "49": "\na.partnership\nb.franchisor\nc.franchise\nd.franchisee\ne.corporation",
     "50": "\na.pro forma statements\nb.operating budgets\nc.master budgets\nd.capital budgets\ne.none of the above",
-    "51": "\na.budget committee statements\nb.operating budget statements\nc.participative budget statements\nd.pro forma statements\ne.none of the above"
+    "51": "\na.budget committee statements\nb.operating budget statements\nc.participative budget statements\nd.pro forma statements\ne.none of the above",
+    "52": "\na.strategic budgets\nb.operating budgets\nc.financial statement budgets\nd.capital budgets\ne.none of the above",
+    "53": "\na.tactical budgeting\nb.strategic planning\nc.operating budget\nd.capital budgeting\ne.none of the above",
+    "54": "\na.pro forma accounting statement\nb.pro forma balance sheet\nc.pro forma cash flow\nd.pro forma income statement\ne.none of the above",
+    "55": "\na.retained earnings\nb.preferred stock\nc.dividend\nd.commmon stock\ne.none of the above",
+    "56": "\na.note\nb.accumulated account\nc.account receivable\nd.account payable\ne.none of the above",
+    "57": "\na.note\nb.accumulated account\nc.account receivable\nd.account payable\ne.none of the above",
+    "58": "\na. Volumnes of sales where the ventures make neither a profit nor a loss\nb.summaries of project assets, liabilities and net worth\nc.projected net profits calculated from projected revenues and projected costs and expenses\nd.projected cash available gotten from projected cash accumulated and projected disbursements\ne.All of the above",
+    "59": "\na.owners equity and retained earnings\nb.fixed assets\nc.current liabilities\nd.assets, liabilities any owners equity\ne.all of the above",
+    "60": "\na.wealth accumulation\nb.value added products and services\nc.profitable return on investment\nd.income and job stability\ne.career positions",
+    "61": "\na.does not matter\nb.high risk takers\nc.moderated risk takers\nd.small risk takers\ne.none of the above",
+    "62": "\na.will never go to parties\nb.just fit into the crowd at a party\nc.are the life of the party\nd.are bores at a cocktail party\ne.none of the above",
+    "63": "\na.creative descruction\nb.entrepreneurship\nc.outsourcing\nd.upscaling\ne.none of the above"
   },
   "answers": {
     "1": "d.Window of opportunity",
@@ -156,6 +180,18 @@
     "48": "b.corporation",
     "49": "c.franchise",
     "50": "c.master budgets",
-    "51": "d.pro forma statements"
+    "51": "d.pro forma statements",
+    "52": "b.operating budgets",
+    "53": "d.capital budgeting",
+    "54": "b.pro forma balance sheet",
+    "55": "a.retained earnings",
+    "56": "d.account payable",
+    "57": "c.account receivable",
+    "58": "c.projected net profits calculated from projected revenues and projected costs and expenses",
+    "59": "d.assets, liabilities any owners equity",
+    "60": "c.profitable return on investment",
+    "61": "b.high risk takers",
+    "62": "b.just fit into the crowd at a party",
+    "63": "a.creative descruction"
   }
 }
