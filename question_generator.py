@@ -37,7 +37,7 @@ if __name__ == "__main__":
             input()
             print(f"Answer: {answer[random_question_number]}")
             answer_is_correct = input()
-            if answer_is_correct == "c":
+            if answer_is_correct == "":
                 correct_answers += 1
 
 
