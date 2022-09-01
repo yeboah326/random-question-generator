@@ -10,7 +10,7 @@ pass_file_names = {"1": "./questions/eng_econs_1.json", "2":"./questions/dsp_end
 if __name__ == "__main__":
     system("cls|clear")
 
-    print("Select a set of questions to go through: \n1. Engineering Econs 1\n2. Digital Signal Processing (End of Semester)\n3. Entrepreneurship 2015 (87)\n4. Management 1 (20)")
+    print("Select a set of questions to go through: \n1. Engineering Econs 1\n2. Digital Signal Processing (End of Semester)\n3. Entrepreneurship 2015 (87)\n4. Management 1 (50)")
     passco_number = input("Choice: ")
 
     with open(pass_file_names[passco_number], "r") as file:
