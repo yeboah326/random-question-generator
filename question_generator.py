@@ -24,7 +24,7 @@ if __name__ == "__main__":
     2. Digital Signal Processing (End of Semester)
     3. Entrepreneurship 2015 (87)
     4. Management 1 (139)
-    5. Management 2 - 2005 (50) 
+    5. Management 2 - 2005 (80) 
         """
     )
     passco_number = input("Choice: ")
