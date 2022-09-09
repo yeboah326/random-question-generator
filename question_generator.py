@@ -2,6 +2,10 @@ import json
 from os import system, name
 from random import choice
 from tqdm import tqdm
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
 
 pass_file_names = {
     "1": "./questions/eng_econs_1.json",
@@ -12,14 +16,30 @@ pass_file_names = {
 }
 
 
+def print_table(data1, data2, data3, data4, data5):
+    table = Table(title="Sets of Questions")
+
+    table.add_column("Set Number", style="blue bold")
+    table.add_column("Set Name", style="magenta bold")
+    table.add_column("Total Number of Questions", style="bold")
+
+    table.add_row("1", "Engineering Econs 1", str(number_of_questions(data1)))
+    table.add_row(
+        "2", "Digital Signal Processing ( End of Sem )", str(number_of_questions(data2))
+    )
+    table.add_row("3", "Entrepreneurship 2015", str(number_of_questions(data3)))
+    table.add_row("4", "Management 1", str(number_of_questions(data4)))
+    table.add_row("5", "Management 2 - 2005", str(number_of_questions(data5)))
+
+    console.print(table)
+
+
 def clear_screen():
     system("cls" if name == "nt" else "clear")
 
 
 if __name__ == "__main__":
     clear_screen()
-
-    print("Select a set of questions")
 
     with open(pass_file_names["1"], "r") as file1, open(
         pass_file_names["2"], "r"
@@ -37,36 +57,35 @@ if __name__ == "__main__":
     def number_of_questions(data):
         return len(data["questions"].items())
 
-    loops = int(input("How many times do you want to run through the program, eg: 2: "))
+    loops = int(
+        console.input(
+            "[bold yellow]How many times do you want to run through the program? eg: 2: [/bold yellow]"
+        )
+    )
     runs = 0
 
     while runs < loops:
-        print(f"\nNumber of Runs Through Program : {runs + 1}.\n")
-        print("Select your set of questions.")
-        print(
-            f"""
-        1. Engineering Econs 1. \n\tNumber of Questions: {number_of_questions(data1)}
-        2. Digital Signal Processing (End of Semester). \n\tNumber of Questions: {number_of_questions(data2)}
-        3. Entrepreneurship 2015. \n\tNumber of Questions: {number_of_questions(data3)}
-        4. Management 1. \n\tNumber of Questions: {number_of_questions(data4)}
-        5. Management 2 - 2005. \n\tNumber of Questions: {number_of_questions(data5)}
-            """
+        console.print(
+            f"\n[bold]Number of Runs Through Program : {runs + 1} out {loops}[/bold].\n"
         )
+        console.print("[bold yellow]Select your set of questions.[/bold yellow]\n")
+
+        print_table(data1, data2, data3, data4, data5)
 
         try:
-            passco_number = input("Choice: ")
+            passco_number = console.input("[bold blue]Your Choice, eg, 3: [/bold blue]")
         except KeyboardInterrupt as e:
-            print("Session Terminated by User !!!")
+            console.print("\n[bold red]Session Terminated by User !!![bold red]")
             break
         else:
             try:
                 with open(pass_file_names[passco_number], "r") as file:
                     data = json.load(file)
             except KeyError as e:
-                print("Invalid Choice, Try Again.")
+                console.print("[bold red]Invalid Choice, Try Again.[/bold red]")
             else:
-                start = int(input("Start: "))
-                stop = int(input("Stop: "))
+                start = int(console.input("[bold green]Start Number:[/bold green] "))
+                stop = int(console.input("[bold red]Stop Number:[/bold red] "))
 
                 questions = {
                     key: value
@@ -85,6 +104,7 @@ if __name__ == "__main__":
                 }  # [start:stop+1]
 
                 correct_answers = 0
+                skipped = 0
 
                 clear_screen()
 
@@ -94,14 +114,24 @@ if __name__ == "__main__":
                     ):
                         random_question_number = choice(list(questions.keys()))
                         print(f"\n-----Question {random_question_number}-----")
-                        print(questions[random_question_number])
+                        console.print(
+                            f"[bold yellow]{questions[random_question_number]}[/bold yellow]"
+                        )
                         input()
                         print(possible_answers[random_question_number])
+
+                        user_answer = str(
+                            console.input("\n[bold]Your answer, eg, b: [/bold]")
+                        )
+                        console.print(
+                            f"\n[bold]Suggested Answer:[/bold] [green bold]{answer[random_question_number]}[/green bold]"
+                        )
                         input()
-                        print(f"Answer: {answer[random_question_number]}")
-                        answer_is_correct = input()
-                        if answer_is_correct == "":
+
+                        if user_answer == answer[random_question_number][0]:
                             correct_answers += 1
+                        elif user_answer == "":
+                            skipped += 1
 
                         del questions[random_question_number]
                         clear_screen()
@@ -111,6 +141,11 @@ if __name__ == "__main__":
                     print("Completed session successfully")
                 finally:
                     clear_screen()
-                    print(f"You scored {correct_answers}/{len(possible_answers)}")
+                    console.print(
+                        f"[bold]You scored {correct_answers}/{len(possible_answers)}[/bold]"
+                    )
+                    console.print(
+                        f"[bold]You skipped {skipped}/{len(possible_answers)}[/bold]"
+                    )
 
                 runs += 1
