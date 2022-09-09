@@ -8,23 +8,42 @@ pass_file_names = {
     "2": "./questions/dsp_end_of_sem.json",
     "3": "./questions/eng_econs_2015.json",
     "4": "./questions/management_1.json",
-    "5": "./questions/management_2005.json"
+    "5": "./questions/management_2005.json",
 }
+
 
 def clear_screen():
     system("cls" if name == "nt" else "clear")
+
 
 if __name__ == "__main__":
     clear_screen()
 
     print("Select a set of questions")
+
+    with open(pass_file_names["1"], "r") as file1, open(
+        pass_file_names["2"], "r"
+    ) as file2, open(pass_file_names["3"], "r") as file3, open(
+        pass_file_names["4"], "r"
+    ) as file4, open(
+        pass_file_names["5"], "r"
+    ) as file5:
+        data1 = json.load(file1)
+        data2 = json.load(file2)
+        data3 = json.load(file3)
+        data4 = json.load(file4)
+        data5 = json.load(file5)
+
+    def number_of_questions(data):
+        return len(data["questions"].items())
+
     print(
-        """
-    1. Engineering Econs 1
-    2. Digital Signal Processing (End of Semester)
-    3. Entrepreneurship 2015 (87)
-    4. Management 1 (139)
-    5. Management 2 - 2005 (80) 
+        f"""
+    1. Engineering Econs 1. \n\tNumber of Questions: {number_of_questions(data1)}
+    2. Digital Signal Processing (End of Semester). \n\tNumber of Questions: {number_of_questions(data2)}
+    3. Entrepreneurship 2015. \n\tNumber of Questions: {number_of_questions(data3)}
+    4. Management 1. \n\tNumber of Questions: {number_of_questions(data4)}
+    5. Management 2 - 2005. \n\tNumber of Questions: {number_of_questions(data5)}
         """
     )
     passco_number = input("Choice: ")
