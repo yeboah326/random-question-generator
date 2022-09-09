@@ -128,10 +128,15 @@ if __name__ == "__main__":
                         )
                         input()
 
-                        if user_answer == answer[random_question_number][0]:
-                            correct_answers += 1
-                        elif user_answer == "":
-                            skipped += 1
+                        try:
+                            answer_alphabet = answer[random_question_number][0]
+                        except IndexError as e:
+                            console.print(f"[bold red]{e}[/bold red]")
+                        else:
+                            if user_answer == answer_alphabet:
+                                correct_answers += 1
+                            elif user_answer == "":
+                                skipped += 1
 
                         del questions[random_question_number]
                         clear_screen()
