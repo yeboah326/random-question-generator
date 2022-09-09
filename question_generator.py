@@ -34,6 +34,27 @@ def print_table(data1, data2, data3, data4, data5):
     console.print(table)
 
 
+def print_recent_runs(recent_runs):
+    table = Table(title="History of Recent Runs")
+
+    table.add_column("Set Number", style="blue bold")
+    table.add_column("Start Number", style="green bold")
+    table.add_column("Stop Number", style="red bold")
+    table.add_column("Score", style="bold")
+    table.add_column("Skipped", style="bold")
+
+    for _, value in recent_runs.items():
+        table.add_row(
+            str(value["Set Number"]),
+            str(value["Start Number"]),
+            str(value["Stop Number"]),
+            str(value["Score"]),
+            str(value["Skipped"]),
+        )
+
+    console.print(table)
+
+
 def clear_screen():
     system("cls" if name == "nt" else "clear")
 
@@ -63,13 +84,18 @@ if __name__ == "__main__":
         )
     )
     runs = 0
+    # Recent runs: Hold the history of the previous runs
+    recent_runs = {}
 
     while runs < loops:
         console.print(
             f"\n[bold]Number of Runs Through Program : {runs + 1} out {loops}[/bold].\n"
         )
-        console.print("[bold yellow]Select your set of questions.[/bold yellow]\n")
 
+        if recent_runs:
+            print_recent_runs(recent_runs)
+
+        console.print("[bold yellow]Select your set of questions.[/bold yellow]\n")
         print_table(data1, data2, data3, data4, data5)
 
         try:
@@ -140,6 +166,7 @@ if __name__ == "__main__":
 
                         del questions[random_question_number]
                         clear_screen()
+
                 except KeyboardInterrupt:
                     print("Closed session")
                 else:
@@ -152,5 +179,13 @@ if __name__ == "__main__":
                     console.print(
                         f"[bold]You skipped {skipped}/{len(possible_answers)}[/bold]"
                     )
+
+                recent_runs[runs] = {
+                    "Set Number": passco_number,
+                    "Start Number": start,
+                    "Stop Number": stop,
+                    "Score": correct_answers,
+                    "Skipped": skipped,
+                }
 
                 runs += 1
