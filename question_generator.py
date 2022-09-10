@@ -15,6 +15,14 @@ pass_file_names = {
     "5": "./questions/management_2005.json",
 }
 
+set_names: dict[int, str] = {
+    1: "Engineering Econs 1",
+    2: "Digital Signal Processing",
+    3: "Entrepreneurship 2015",
+    4: "Management 1",
+    5: "Management 2 - 2005",
+}
+
 
 def print_table(data1, data2, data3, data4, data5):
     table = Table(title="Sets of Questions")
@@ -38,18 +46,22 @@ def print_recent_runs(recent_runs):
     table = Table(title="History of Recent Runs")
 
     table.add_column("Set Number", style="blue bold")
+    table.add_column("Set Name", style="magenta bold")
     table.add_column("Start Number", style="green bold")
     table.add_column("Stop Number", style="red bold")
     table.add_column("Score", style="bold")
     table.add_column("Skipped", style="bold")
+    table.add_column("Undone", style="bold")
 
     for _, value in recent_runs.items():
         table.add_row(
             str(value["Set Number"]),
+            str(set_names[int(value["Set Number"])]),
             str(value["Start Number"]),
             str(value["Stop Number"]),
             str(value["Score"]),
             str(value["Skipped"]),
+            str(value["Undone"]),
         )
 
     console.print(table)
@@ -95,7 +107,7 @@ if __name__ == "__main__":
         if recent_runs:
             print_recent_runs(recent_runs)
 
-        console.print("[bold yellow]Select your set of questions.[/bold yellow]\n")
+        console.print("\n[bold yellow]Select your set of questions.[/bold yellow]")
         print_table(data1, data2, data3, data4, data5)
 
         try:
@@ -173,19 +185,16 @@ if __name__ == "__main__":
                     print("Completed session successfully")
                 finally:
                     clear_screen()
-                    console.print(
-                        f"[bold]You scored {correct_answers}/{len(possible_answers)}[/bold]"
-                    )
-                    console.print(
-                        f"[bold]You skipped {skipped}/{len(possible_answers)}[/bold]"
-                    )
 
                 recent_runs[runs] = {
                     "Set Number": passco_number,
                     "Start Number": start,
                     "Stop Number": stop,
-                    "Score": correct_answers,
-                    "Skipped": skipped,
+                    "Score": f"{correct_answers} / {len(possible_answers)}",
+                    "Skipped": f"{skipped} / {len(possible_answers)}",
+                    "Undone": f"{len(possible_answers) - (correct_answers + skipped)}/{len(possible_answers)}",
                 }
 
                 runs += 1
+
+    print_recent_runs(recent_runs)
