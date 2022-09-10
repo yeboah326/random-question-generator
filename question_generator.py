@@ -62,12 +62,12 @@ def clear_screen():
 if __name__ == "__main__":
     clear_screen()
 
-    with open(pass_file_names["1"], "r") as file1, open(
-        pass_file_names["2"], "r"
-    ) as file2, open(pass_file_names["3"], "r") as file3, open(
-        pass_file_names["4"], "r"
+    with open(file=pass_file_names["1"], mode="r", encoding="utf-8") as file1, open(
+        file=pass_file_names["2"], mode="r", encoding="utf-8",
+    ) as file2, open(file=pass_file_names["3"], mode="r", encoding="utf-8") as file3, open(
+        file=pass_file_names["4"], mode="r", encoding="utf-8"
     ) as file4, open(
-        pass_file_names["5"], "r"
+        file=pass_file_names["5"], mode="r", encoding="utf-8"
     ) as file5:
         data1 = json.load(file1)
         data2 = json.load(file2)
