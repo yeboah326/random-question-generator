@@ -75,8 +75,12 @@ if __name__ == "__main__":
     clear_screen()
 
     with open(file=pass_file_names["1"], mode="r", encoding="utf-8") as file1, open(
-        file=pass_file_names["2"], mode="r", encoding="utf-8",
-    ) as file2, open(file=pass_file_names["3"], mode="r", encoding="utf-8") as file3, open(
+        file=pass_file_names["2"],
+        mode="r",
+        encoding="utf-8",
+    ) as file2, open(
+        file=pass_file_names["3"], mode="r", encoding="utf-8"
+    ) as file3, open(
         file=pass_file_names["4"], mode="r", encoding="utf-8"
     ) as file4, open(
         file=pass_file_names["5"], mode="r", encoding="utf-8"
@@ -122,79 +126,83 @@ if __name__ == "__main__":
             except KeyError as e:
                 console.print("[bold red]Invalid Choice, Try Again.[/bold red]")
             else:
-                start = int(console.input("[bold green]Start Number:[/bold green] "))
-                stop = int(console.input("[bold red]Stop Number:[/bold red] "))
-
-                questions = {
-                    key: value
-                    for key, value in data["questions"].items()
-                    if start <= int(key) <= stop
-                }  # [start:stop+1]
-                possible_answers = {
-                    key: value
-                    for key, value in data["possible_answers"].items()
-                    if start <= int(key) <= stop
-                }  # [start:stop+1]
-                answer = {
-                    key: value
-                    for key, value in data["answers"].items()
-                    if start <= int(key) <= stop
-                }  # [start:stop+1]
-
-                correct_answers = 0
-                skipped = 0
-
-                clear_screen()
-
                 try:
-                    for i in tqdm(
-                        range(len(possible_answers)), desc="Percentage Complete"
-                    ):
-                        random_question_number = choice(list(questions.keys()))
-                        print(f"\n-----Question {random_question_number}-----")
-                        console.print(
-                            f"[bold yellow]{questions[random_question_number]}[/bold yellow]"
-                        )
-                        input()
-                        print(possible_answers[random_question_number])
-
-                        user_answer = str(
-                            console.input("\n[bold]Your answer, eg, b: [/bold]")
-                        )
-                        console.print(
-                            f"\n[bold]Suggested Answer:[/bold] [green bold]{answer[random_question_number]}[/green bold]"
-                        )
-                        input()
-
-                        try:
-                            answer_alphabet = answer[random_question_number][0]
-                        except IndexError as e:
-                            console.print(f"[bold red]{e}[/bold red]")
-                        else:
-                            if user_answer == answer_alphabet:
-                                correct_answers += 1
-                            elif user_answer == "":
-                                skipped += 1
-
-                        del questions[random_question_number]
-                        clear_screen()
-
-                except KeyboardInterrupt:
-                    print("Closed session")
+                    start = int(
+                        console.input("[bold green]Start Number:[/bold green] ")
+                    )
+                    stop = int(console.input("[bold red]Stop Number:[/bold red] "))
+                except ValueError:
+                    console.print("[bold red]Invalid input, enter again !!!")
                 else:
-                    print("Completed session successfully")
-                finally:
+                    questions = {
+                        key: value
+                        for key, value in data["questions"].items()
+                        if start <= int(key) <= stop
+                    }  # [start:stop+1]
+                    possible_answers = {
+                        key: value
+                        for key, value in data["possible_answers"].items()
+                        if start <= int(key) <= stop
+                    }  # [start:stop+1]
+                    answer = {
+                        key: value
+                        for key, value in data["answers"].items()
+                        if start <= int(key) <= stop
+                    }  # [start:stop+1]
+
+                    correct_answers = 0
+                    skipped = 0
+
                     clear_screen()
 
-                recent_runs[runs] = {
-                    "Set Number": passco_number,
-                    "Start Number": start,
-                    "Stop Number": stop,
-                    "Score": f"{correct_answers} / {len(possible_answers)}",
-                    "Skipped": f"{skipped} / {len(possible_answers)}",
-                    "Undone": f"{len(possible_answers) - (correct_answers + skipped)}/{len(possible_answers)}",
-                }
+                    try:
+                        for i in tqdm(
+                            range(len(possible_answers)), desc="Percentage Complete"
+                        ):
+                            random_question_number = choice(list(questions.keys()))
+                            console.rule(f"[bold]Question {random_question_number}")
+                            console.print(
+                                f"[bold yellow]{questions[random_question_number]}[/bold yellow]"
+                            )
+                            input()
+                            print(possible_answers[random_question_number])
 
-                runs += 1
+                            user_answer = str(
+                                console.input("\n[bold]Your answer, eg, b: [/bold]")
+                            )
+                            console.print(
+                                f"\n[bold]Suggested Answer:[/bold] [green bold]{answer[random_question_number]}[/green bold]"
+                            )
+                            input()
 
-    print_recent_runs(recent_runs)
+                            try:
+                                answer_alphabet = answer[random_question_number][0]
+                            except IndexError as e:
+                                console.print(f"[bold red]{e}[/bold red]")
+                            else:
+                                if user_answer.upper() == answer_alphabet.upper():
+                                    correct_answers += 1
+                                elif user_answer == "":
+                                    skipped += 1
+
+                            del questions[random_question_number]
+                            clear_screen()
+                    except KeyboardInterrupt:
+                        print("Closed session")
+                    else:
+                        print("Completed session successfully")
+                    finally:
+                        clear_screen()
+
+                    recent_runs[runs] = {
+                        "Set Number": passco_number,
+                        "Start Number": start,
+                        "Stop Number": stop,
+                        "Score": f"{correct_answers} / {len(possible_answers)}",
+                        "Skipped": f"{skipped} / {len(possible_answers)}",
+                        "Undone": f"{len(possible_answers) - (correct_answers + skipped)}/{len(possible_answers)}",
+                    }
+
+                    runs += 1
+
+        print_recent_runs(recent_runs)
