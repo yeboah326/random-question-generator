@@ -121,7 +121,7 @@ if __name__ == "__main__":
             break
         else:
             try:
-                with open(pass_file_names[passco_number], "r") as file:
+                with open(pass_file_names[passco_number], "r", encoding="utf-8") as file:
                     data = json.load(file)
             except KeyError as e:
                 console.print("[bold red]Invalid Choice, Try Again.[/bold red]")
