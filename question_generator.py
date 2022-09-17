@@ -75,8 +75,12 @@ if __name__ == "__main__":
     clear_screen()
 
     with open(file=pass_file_names["1"], mode="r", encoding="utf-8") as file1, open(
-        file=pass_file_names["2"], mode="r", encoding="utf-8",
-    ) as file2, open(file=pass_file_names["3"], mode="r", encoding="utf-8") as file3, open(
+        file=pass_file_names["2"],
+        mode="r",
+        encoding="utf-8",
+    ) as file2, open(
+        file=pass_file_names["3"], mode="r", encoding="utf-8"
+    ) as file3, open(
         file=pass_file_names["4"], mode="r", encoding="utf-8"
     ) as file4, open(
         file=pass_file_names["5"], mode="r", encoding="utf-8"
@@ -117,7 +121,9 @@ if __name__ == "__main__":
             break
         else:
             try:
-                with open(pass_file_names[passco_number], "r", encoding="utf-8") as file:
+                with open(
+                    pass_file_names[passco_number], "r", encoding="utf-8"
+                ) as file:
                     data = json.load(file)
             except KeyError as e:
                 console.print("[bold red]Invalid Choice, Try Again.[/bold red]")
@@ -151,7 +157,7 @@ if __name__ == "__main__":
                         range(len(possible_answers)), desc="Percentage Complete"
                     ):
                         random_question_number = choice(list(questions.keys()))
-                        print(f"\n-----Question {random_question_number}-----")
+                        console.rule(f"[bold]Question {random_question_number}")
                         console.print(
                             f"[bold yellow]{questions[random_question_number]}[/bold yellow]"
                         )
@@ -170,14 +176,13 @@ if __name__ == "__main__":
                         except IndexError as e:
                             console.print(f"[bold red]{e}[/bold red]")
                         else:
-                            if user_answer == answer_alphabet:
+                            if user_answer.upper() == answer_alphabet.upper():
                                 correct_answers += 1
                             elif user_answer == "":
                                 skipped += 1
 
                         del questions[random_question_number]
                         clear_screen()
-
                 except KeyboardInterrupt:
                     print("Closed session")
                 else:
@@ -185,15 +190,15 @@ if __name__ == "__main__":
                 finally:
                     clear_screen()
 
-                recent_runs[runs] = {
-                    "Set Number": passco_number,
-                    "Start Number": start,
-                    "Stop Number": stop,
-                    "Score": f"{correct_answers} / {len(possible_answers)}",
-                    "Skipped": f"{skipped} / {len(possible_answers)}",
-                    "Undone": f"{len(possible_answers) - (correct_answers + skipped)}/{len(possible_answers)}",
-                }
+                    recent_runs[runs] = {
+                        "Set Number": passco_number,
+                        "Start Number": start,
+                        "Stop Number": stop,
+                        "Score": f"{correct_answers} / {len(possible_answers)}",
+                        "Skipped": f"{skipped} / {len(possible_answers)}",
+                        "Undone": f"{len(possible_answers) - (correct_answers + skipped)}/{len(possible_answers)}",
+                    }
 
-                runs += 1
+                    runs += 1
 
     print_recent_runs(recent_runs)
