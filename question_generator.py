@@ -155,7 +155,6 @@ if __name__ == "__main__":
                         console.print(
                             f"[bold yellow]{questions[random_question_number]}[/bold yellow]"
                         )
-                        input()
                         print(possible_answers[random_question_number])
 
                         user_answer = str(
